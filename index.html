@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <section class ="buttons">
+        <input type="text">
+    </section>
+    <section class ="buttons">
+        <div class = "buttons__num buttons__num--hover">
+            <button onclick="setValue()" class="num_button">1</button>
+            <button onclick="setValue()" class="num_button">2</button>
+            <button onclick="setValue()" class="num_button">3</button>
+            <button onclick="setValue()" class="num_button">4</button>
+            <button onclick="setValue()" class="num_button">5</button>
+            <button onclick="setValue()" class="num_button">6</button>
+            <button onclick="setValue()" class="num_button">7</button>
+            <button onclick="setValue()" class="num_button">8</button>
+            <button onclick="setValue()" class="num_button">9</button>
+            <button onclick="setValue()" class="num_button">0</button>
+            <button onclick="setValue()" class="num_button">.</button>
+        </div>
+        <div class = "buttons__operator buttons__operator--hover">
+            <button onclick="setOperator()" class="op_button">*</button>
+            <button onclick="setOperator()" class="op_button">+</button>
+            <button onclick="setOperator()" class="op_button">-</button>
+            <button onclick="setOperator()" class="op_button">/</button>
+            <button onclick="setOperator()" class="op_button">%</button>
+        </div>
+        <div class = "buttons__action buttons__action--hover">
+            <button onclick="clear()" class="act_button">C</button>
+            <button onclick="calculate()" class="act_button">=</button>
+            <button onclick="del()" class="act_button">Del</button>
+        </div>
+
+    </section>
+    <script src="./index.js"></script>
+</body>
+</html>
