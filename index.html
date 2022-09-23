@@ -7,37 +7,39 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <section class ="buttons">
-        <input type="text">
-    </section>
-    <section class ="buttons">
-        <div class = "buttons__num buttons__num--hover">
-            <button onclick="setValue()" class="num_button">1</button>
-            <button onclick="setValue()" class="num_button">2</button>
-            <button onclick="setValue()" class="num_button">3</button>
-            <button onclick="setValue()" class="num_button">4</button>
-            <button onclick="setValue()" class="num_button">5</button>
-            <button onclick="setValue()" class="num_button">6</button>
-            <button onclick="setValue()" class="num_button">7</button>
-            <button onclick="setValue()" class="num_button">8</button>
-            <button onclick="setValue()" class="num_button">9</button>
-            <button onclick="setValue()" class="num_button">0</button>
-            <button onclick="setValue()" class="num_button">.</button>
-        </div>
-        <div class = "buttons__operator buttons__operator--hover">
-            <button onclick="setOperator()" class="op_button">*</button>
-            <button onclick="setOperator()" class="op_button">+</button>
-            <button onclick="setOperator()" class="op_button">-</button>
-            <button onclick="setOperator()" class="op_button">/</button>
-            <button onclick="setOperator()" class="op_button">%</button>
-        </div>
-        <div class = "buttons__action buttons__action--hover">
-            <button onclick="clear()" class="act_button">C</button>
-            <button onclick="calculate()" class="act_button">=</button>
-            <button onclick="del()" class="act_button">Del</button>
-        </div>
 
-    </section>
+    <div class ="calculator">
+        
+        <input type="text" class="calculator__screen" value="" disabled />
+
+        <section class ="buttons">
+            <div class = "buttons__operator">
+                <button id="mul_button" class="op__button op__button--hover">*</button>
+                <button id="add_button" class="op__button op__button--hover">+</button>
+                <button id="sub_button" class="op__button op__button--hover">-</button>
+                <button id="div_button" class="op__button op__button--hover">/</button>
+            </div>
+            <div class = "buttons__num">
+                <button id="one_button" class="num__button num__button--hover">1</button>
+                <button id="two_button" class="num__button num__button--hover">2</button>
+                <button id="three_button" class="num__button num__button--hover">3</button>
+                <button id="four_button" class="num__button num__button--hover">4</button>
+                <button id="five_button" class="num__button num__button--hover">5</button>
+                <button id="six_button" class="num__button num__button--hover">6</button>
+                <button id="seven_button" class="num__button num__button--hover">7</button>
+                <button id="eight_button" class="num__button num__button--hover">8</button>
+                <button id="nine_button" class="num__button num__button--hover">9</button>
+                <button id="zero_button" class="num__button num__button--hover">0</button>
+                <button id="dot_button" class="num__button num__button--hover">.</button>
+            </div>
+            <div class = "buttons__action">
+                <button id="clr_button" class="act__button act__button--hover">C</button>
+                <button id="del_button" class="act__button act__button--hover">Del</button>
+                <button id="cal_button" class="act__button act__button--hover">=</button>
+              
+            </div>
+        </section>    
+    </div>
     <script src="./index.js"></script>
 </body>
 </html>

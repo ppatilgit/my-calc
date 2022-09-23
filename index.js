@@ -24,11 +24,27 @@
 // const secondNumber = prompt("Second number: ");
 
 // alert(`${firstNumber} ${operator} ${secondNumber}`);
+let firstNumber = "";
+let operator = "";
+let secondNumber = "";
 
+const numButtons = document.getElementsByClassName("num__button");
+const oprButtons = document.getElementsByClassName("op__button");
+const actButtons = document.getElementsByClassName("act__button");
 
-let firstNumber = prompt("First number: ");
-let operator = prompt("Operator: ");
-let secondNumber = prompt("Second number: ");
+const updateDisplay = ()=>{
+    const display = document.querySelector('.calculator__screen');
+    display.value = calculator.displayValue;
+};
+
+buttonSubmit.addEventListener("click", (event) => {
+    event.preventDefault();
+
+});
+
+// let firstNumber = prompt("First number: ");
+// let operator = prompt("Operator: ");
+// let secondNumber = prompt("Second number: ");
 
 
 const addNum = (num1, num2) => num1+num2;
