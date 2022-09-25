@@ -38,7 +38,15 @@ const updateDisplay = ()=>{
 
 const inputDigit = (digit)=>{
     const displayValue = calculator.displayValue;
-    calculator.displayValue=displayValue==='0'?digit: displayValue+digit;
+    const waitingForSecondOperand=calculator.waitingForSecondOperand;
+
+    if(waitingForSecondOperand===true){
+        calculator.displayValue=digit;
+        calculator.waitingForSecondOperand=false;
+    }else{
+        calculator.displayValue=displayValue==='0'?digit: displayValue+digit;
+    }
+    console.log(calculator);
 }
 
 const inputDecimal=(decimal)=>{
@@ -46,6 +54,40 @@ const inputDecimal=(decimal)=>{
         calculator.displayValue +=decimal;
     }
 }
+
+const handleOperator= (operatorForCal)=>{
+    const firstOperand = calculator.firstOperand;
+    const displayValue = calculator.displayValue;
+    const operator= calculator.operator;
+
+    const inputValue = parseFloat(displayValue);
+
+    if(firstOperand===null && !isNaN(inputValue)){
+        calculator.firstOperand=inputValue;
+    } else if(operator){
+        const result =calculate(firstOperand, inputValue, operator);
+        calculator.displayValue=String(result);
+        calculator.firstOperand=result;
+        console.log(calculator);
+    }
+    calculator.waitingForSecondOperand=true;
+    calculator.operator=operatorForCal;
+}
+
+const calculate = ( firstNumber, secondNumber,operator) => {    
+    if(operator== '+'){
+        return firstNumber+secondNumber ;
+    }else if(operator== '-'){
+        return firstNumber-secondNumber ;
+    }else if(operator== '*'){
+        return firstNumber*secondNumber;
+    }else if(operator== '/'){
+        return firstNumber/secondNumber ;
+    }else{
+        return secondNumber;
+    }
+
+};
 
 //Handle Key click
 const keys = document.querySelector('.buttons');
@@ -61,7 +103,8 @@ keys.addEventListener('click', (event) => {
     }
 
     if (target.classList.contains('op__button')) {
-        console.log('operator', target.value);
+        handleOperator(target.value);
+        updateDisplay();
         return;
     }
     
@@ -86,37 +129,7 @@ keys.addEventListener('click', (event) => {
     updateDisplay();
 });
 
-// buttonSubmit.addEventListener("click", (event) => {
-//     event.preventDefault();
-
-// });
-
-// // let firstNumber = prompt("First number: ");
-// // let operator = prompt("Operator: ");
-// // let secondNumber = prompt("Second number: ");
 
 
-// const addNum = (num1, num2) => num1+num2;
-// const subNum = (num1, num2) => num1-num2;
-// const mulNum = (num1, num2) => num1*num2;
-// const divNum = (num1, num2) => num1/num2;
 
-// const calculate = (operator, firstNumber, secondNumber) => {
-//     let calcValue = null;
-//     firstNumber=Number(firstNumber);
-//     secondNumber=Number(secondNumber);
-//     if(operator== '+'){
-//         calcValue= addNum(firstNumber, secondNumber) ;
-//     }else if(operator== '-'){
-//         calcValue= subNum(firstNumber, secondNumber) ;
-//     }else if(operator== '*'){
-//         calcValue= mulNum(firstNumber, secondNumber) ;
-//     }else if(operator== '/'){
-//         calcValue= divNum(firstNumber, secondNumber) ;
-//     }else{
-//         calcValue= "Not defined operator";
-//     }
-//     console.log(calcValue);
-//     return calcValue;
-// };
 
