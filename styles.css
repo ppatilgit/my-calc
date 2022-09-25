@@ -13,15 +13,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: 500px;
+  height: 500px;
 }
 .calculator .calculator__screen {
   width: 100%;
   font-size: 5rem;
   height: 80px;
   border: none;
-  background-color: #e4c9b5;
-  color: #fff;
+  background-color: #f0edea;
+  color: black;
   text-align: right;
   padding-right: 20px;
   padding-left: 10px;
@@ -33,7 +34,8 @@
   align-items: center;
 }
 .calculator .buttons .buttons__num button, .calculator .buttons .buttons__operator button, .calculator .buttons .buttons__action button {
-  height: 60px;
+  height: 75px;
+  width: 100px;
   background-color: #fff;
   border-radius: 3px;
   border: 1px solid #c4c4c4;
@@ -41,7 +43,7 @@
   font-size: 2rem;
   color: #333;
   background-image: linear-gradient(to bottom, transparent, transparent 50%, #e9f0ee);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 1px 0 0 rgba(255, 255, 255, 0.45), inset 0 -1px 0 0 rgba(255, 255, 255, 0.15), 0 1px 0 0 rgba(255, 255, 255, 0.15);
+  box-shadow: 5px 2px 2px #e9f0ee;
   text-shadow: 0 1px rgba(255, 255, 255, 0.4);
 }
 .calculator .buttons .buttons__num button:hover, .calculator .buttons .buttons__operator button:hover, .calculator .buttons .buttons__action button:hover {
@@ -50,14 +52,14 @@
 .calculator .buttons .buttons__num {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-row-gap: 20px;
-  grid-column-gap: 20px;
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
 }
 .calculator .buttons .buttons__operator {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-row-gap: 20px;
-  grid-column-gap: 20px;
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
 }
 .calculator .buttons .buttons__operator .op__button {
   color: #337cac;
@@ -65,8 +67,8 @@
 .calculator .buttons .buttons__action {
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
-  grid-row-gap: 20px;
-  grid-column-gap: 20px;
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
 }
 .calculator .buttons .buttons__action .act__button {
   background-color: #f0595f;
