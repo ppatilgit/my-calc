@@ -26,17 +26,17 @@ const inputDigit = (digit)=>{
 
     if(waitingForSecondOperand===true){
         calculator.displayValue=digit;
-        calculator.previousEquation=calculator.displayValue;
         calculator.waitingForSecondOperand=false;
     }else{
         calculator.displayValue=displayValue==='0'?digit: displayValue+digit;
     }
-    
+    calculator.previousEquation=calculator.previousEquation+digit;
 }
 
 const inputDecimal=(decimal)=>{
     if(!calculator.displayValue.includes(decimal)){
         calculator.displayValue +=decimal;
+        calculator.previousEquation +=decimal;
     }
 }
 
@@ -46,9 +46,10 @@ const handleOperator= (operatorForCal)=>{
     const operator= calculator.operator;
     const inputValue = parseFloat(displayValue);
 
+    calculator.previousEquation +=operatorForCal;
+
     if(operator && calculator.waitingForSecondOperand){
         calculator.operator=operatorForCal;
-        calculator.previousEquation= firstOperand+operator;
         return;
     }
 
@@ -56,12 +57,11 @@ const handleOperator= (operatorForCal)=>{
         calculator.firstOperand=inputValue;
     } else if(operator){
         const result =calculate(firstOperand, inputValue, operator);
-        calculator.previousEquation= firstOperand+operator+inputValue;
         calculator.displayValue=String(result);
         calculator.firstOperand=result;
     }
     calculator.waitingForSecondOperand=true;
-    calculator.operator=operatorForCal;
+    calculator.operator=operatorForCal;    
 }
 
 const calculate = ( firstNumber, secondNumber,operator) => {    
@@ -111,10 +111,10 @@ keys.addEventListener('click', (event) => {
         return;
     }
 
-    if (target.classList.contains('del_button')) {
-        console.log('delete', target.value);
-        return;
-    }
+    // if (target.classList.contains('del_button')) {
+    //     console.log('delete', target.value);
+    //     return;
+    // }
     if (target.classList.contains('dot_button')) {
         inputDecimal(target.value);
         updateDisplay();

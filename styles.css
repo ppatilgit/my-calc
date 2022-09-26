@@ -6,8 +6,18 @@
   font-family: "Roboto", sans-serif;
 }
 
-.calculator {
-  border: 1px solid #ccc;
+body {
+  margin-left: 350px;
+  margin-right: 350px;
+  border: 2px solid #495057;
+  display: flex;
+  justify-content: center;
+}
+body h1 {
+  color: #343a40;
+}
+body .calculator {
+  border: 1px solid #495057;
   border-radius: 5px;
   position: absolute;
   top: 50%;
@@ -16,73 +26,75 @@
   width: 500px;
   height: 500px;
 }
-.calculator .calculator__screen {
+body .calculator .equation__screen {
   width: 100%;
-  font-size: 5rem;
-  height: 80px;
+  font-size: 2rem;
+  height: 50px;
   border: none;
-  background-color: #f0edea;
-  color: black;
+  background-color: #adb5bd;
+  color: #495057;
   text-align: right;
   padding-right: 20px;
   padding-left: 10px;
 }
-.calculator .buttons {
+body .calculator .calculator__screen {
+  width: 100%;
+  font-size: 5rem;
+  height: 80px;
+  border: none;
+  background-color: #343a40;
+  color: #f8f9fa;
+  text-align: right;
+  padding-right: 20px;
+  padding-left: 10px;
+}
+body .calculator .buttons {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-.calculator .buttons .buttons__num button, .calculator .buttons .buttons__operator button, .calculator .buttons .buttons__action button {
-  height: 75px;
-  width: 100px;
-  background-color: #fff;
+body .calculator .buttons .buttons__num button, body .calculator .buttons .buttons__operator button, body .calculator .buttons .buttons__action button {
+  height: 65px;
+  width: 90px;
+  background-color: #dee2e6;
   border-radius: 3px;
-  border: 1px solid #c4c4c4;
+  border: 0.1px solid #adb5bd;
   background-color: transparent;
   font-size: 2rem;
-  color: #333;
-  background-image: linear-gradient(to bottom, transparent, transparent 50%, #e9f0ee);
-  box-shadow: 5px 2px 2px #e9f0ee;
-  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
+  color: #212529;
+  background-image: linear-gradient(to bottom, transparent, transparent 50%, #adb5bd);
+  box-shadow: 5px 2px 2px #f8f9fa;
+  text-shadow: 0 1px equation-text;
 }
-.calculator .buttons .buttons__num button:hover, .calculator .buttons .buttons__operator button:hover, .calculator .buttons .buttons__action button:hover {
-  background-color: #eaeaea;
+body .calculator .buttons .buttons__num button:hover, body .calculator .buttons .buttons__operator button:hover, body .calculator .buttons .buttons__action button:hover {
+  background-color: #adb5bd;
 }
-.calculator .buttons .buttons__num {
+body .calculator .buttons .buttons__num {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 5px;
   grid-column-gap: 5px;
 }
-.calculator .buttons .buttons__operator {
+body .calculator .buttons .buttons__operator {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-row-gap: 5px;
-  grid-column-gap: 5px;
+  grid-row-gap: 3px;
+  grid-column-gap: 3px;
 }
-.calculator .buttons .buttons__operator .op__button {
-  color: #337cac;
-}
-.calculator .buttons .buttons__action {
+body .calculator .buttons .buttons__action {
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
-  grid-row-gap: 5px;
-  grid-column-gap: 5px;
+  grid-row-gap: 3px;
+  grid-column-gap: 3px;
 }
-.calculator .buttons .buttons__action .act__button {
-  background-color: #f0595f;
-  border-color: #b0353a;
-  color: #fff;
+body .calculator .buttons .buttons__action .cal_button, body .calculator .buttons .buttons__action .act__button {
+  background-color: #adb5bd;
+  border-color: #adb5bd;
+  background-image: linear-gradient(to top, transparent, transparent 60%, #343a40);
+  color: #212529;
 }
-.calculator .buttons .buttons__action .act__button:hover {
-  background-color: #f17377;
-}
-.calculator .buttons .buttons__action #cal_button {
-  background-color: #2e86c0;
-  border-color: #337cac;
-  color: #fff;
-}
-.calculator .buttons .buttons__action #cal_button:hover {
-  background-color: #4e9ed4;
+body .calculator .buttons .buttons__action .cal_button:hover, body .calculator .buttons .buttons__action .act__button:hover {
+  background-color: #343a40;
+  color: #f8f9fa;
 }/*# sourceMappingURL=styles.css.map */

@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto&display=swap');
 
 $font-body:"Roboto", sans-serif;
+$main-display-background: #343a40;
+$main-display-text: #f8f9fa;
+$key-background-color: #dee2e6;
+$key-text-color: #212529;
+$equation-background: #adb5bd;
+$equation-text: #495057;
 
 *{
     margin: 0;
@@ -8,95 +14,102 @@ $font-body:"Roboto", sans-serif;
     box-sizing: border-box;
     font-family: $font-body;
 }
-
-.calculator {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 500px;
-    .calculator__screen {
-        width: 100%;
-        font-size: 5rem;
-        height: 80px;
-        border: none;
-        background-color: #f0edea;
-        color: black;
-        text-align: right;
-        padding-right: 20px;
-        padding-left: 10px;
-      }
-      .buttons{
+body{
+    margin-left: 350px;
+    margin-right: 350px;
+    border: 2px solid $equation-text;
+    display: flex;
+    justify-content: center;
+    h1{
+        color: $main-display-background;
+    }
+    .calculator {
+        border: 1px solid $equation-text;
+        border-radius: 5px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 500px;
+        height: 500px;
+        .equation__screen {
+            width: 100%;
+            font-size: 2rem;
+            height: 50px;
+            border: none;
+            background-color: $equation-background;
+            color:$equation-text;
+            text-align: right;
+            padding-right: 20px;
+            padding-left: 10px;
+        }
+        .calculator__screen {
+            width: 100%;
+            font-size: 5rem;
+            height: 80px;
+            border: none;
+            background-color: $main-display-background;
+            color:$main-display-text;
+            text-align: right;
+            padding-right: 20px;
+            padding-left: 10px;
+        }
+        .buttons{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        .buttons__num, .buttons__operator, .buttons__action{
-            button {
-                height: 75px;
-                width: 100px;
-                background-color: #fff;
-                border-radius: 3px;
-                border: 1px solid #c4c4c4;
-                background-color: transparent;
-                font-size: 2rem;
-                color: #333;
-                background-image: linear-gradient(to bottom,transparent,transparent 50%,#e9f0ee);
-                box-shadow: 5px 2px 2px #e9f0ee  ;
-                text-shadow: 0 1px rgba(255,255,255,.4);
+            .buttons__num, .buttons__operator, .buttons__action{
+                button {
+                    height: 65px;
+                    width: 90px;
+                    background-color: $key-background-color;
+                    border-radius: 3px;
+                    border: 0.1px solid $equation-background;
+                    background-color: transparent;
+                    font-size: 2rem;
+                    color: $key-text-color;
+                    background-image: linear-gradient(to bottom,transparent,transparent 50%,$equation-background);
+                    box-shadow: 5px 2px 2px $main-display-text ;
+                    text-shadow: 0 1px equation-text;
+                }              
+                button:hover {
+                    background-color: $equation-background;
+                }     
+            } 
+            .buttons__num{
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-row-gap: 5px;
+                grid-column-gap: 5px;
             }
-          
-            button:hover {
-                background-color: #eaeaea;
+            .buttons__operator{
+                display: grid;
+                grid-template-columns:1fr 1fr 1fr 1fr;
+                grid-row-gap: 3px;
+                grid-column-gap: 3px;                  
             }
- 
-        } 
-        .buttons__num{
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-row-gap: 5px;
-            grid-column-gap: 5px;
-        }
-        .buttons__operator{
-            display: grid;
-            grid-template-columns:1fr 1fr 1fr 1fr;
-            grid-row-gap: 5px;
-            grid-column-gap: 5px;
-            .op__button {
-                color: #337cac;
-              }
-              
-        }
-        .buttons__action{
-            display: grid;
-            grid-template-columns: 1fr 1fr 2fr;
-            grid-row-gap: 5px;
-            grid-column-gap: 5px;
-            .act__button {
-            background-color: #f0595f;
-            border-color: #b0353a;
-            color: #fff;
+            .buttons__action{
+                display: grid;
+                grid-template-columns: 1fr 1fr 2fr;
+                grid-row-gap: 3px;
+                grid-column-gap: 3px;
+                .cal_button, .act__button {
+                background-color:  $equation-background;
+                border-color: $equation-background;
+                background-image: linear-gradient(to top,transparent,transparent 60%, $main-display-background);
+                color: $key-text-color;
+                }
+                .cal_button:hover, .act__button:hover {
+                background-color: $main-display-background;
+                color: $main-display-text;
+                }
             }
-            
-            .act__button:hover {
-            background-color: #f17377;
-            }
-            #cal_button {
-            background-color: #2e86c0;
-            border-color: #337cac;
-            color: #fff;
-            }
-                   
-            #cal_button:hover {
-            background-color: #4e9ed4;
-            }
-        }
 
-      }
-  }
+        }
+    }
+    
+}
 
   
  
