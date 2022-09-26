@@ -111,10 +111,10 @@ keys.addEventListener('click', (event) => {
         return;
     }
 
-    // if (target.classList.contains('del_button')) {
-    //     console.log('delete', target.value);
-    //     return;
-    // }
+    if (target.classList.contains('del_button')) {
+        console.log('delete', target.value);
+        return;
+    }
     if (target.classList.contains('dot_button')) {
         inputDecimal(target.value);
         updateDisplay();

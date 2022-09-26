@@ -17,21 +17,23 @@ $equation-text: #495057;
 body{
     margin-left: 350px;
     margin-right: 350px;
+    margin-bottom: 350px;
     border: 2px solid $equation-text;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     h1{
         color: $main-display-background;
     }
     .calculator {
+        margin: 40px;
         border: 1px solid $equation-text;
         border-radius: 5px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 500px;
-        height: 500px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         .equation__screen {
             width: 100%;
             font-size: 2rem;
@@ -55,12 +57,16 @@ body{
             padding-left: 10px;
         }
         .buttons{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-            .buttons__num, .buttons__operator, .buttons__action{
-                button {
+            display:grid;
+            grid-template-areas:
+            "clr del mul div"
+            "num7 num8 num9 add"
+            "num4 num5 num6 sub"
+            "num1 num2 num3 cal"
+            "num0 num0 dot cal";
+            grid-column-gap: 5px;
+            grid-row-gap: 5px;
+            button {
                     height: 65px;
                     width: 90px;
                     background-color: $key-background-color;
@@ -75,36 +81,74 @@ body{
                 }              
                 button:hover {
                     background-color: $equation-background;
-                }     
-            } 
-            .buttons__num{
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                grid-row-gap: 5px;
-                grid-column-gap: 5px;
+                }      
+            .one_button{
+                grid-area: num1;
             }
-            .buttons__operator{
-                display: grid;
-                grid-template-columns:1fr 1fr 1fr 1fr;
-                grid-row-gap: 3px;
-                grid-column-gap: 3px;                  
+            .two_button{
+                grid-area: num2;
             }
-            .buttons__action{
-                display: grid;
-                grid-template-columns: 1fr 1fr 2fr;
-                grid-row-gap: 3px;
-                grid-column-gap: 3px;
-                .cal_button, .act__button {
+            .three_button{
+                grid-area: num3;
+            }
+            .four_button{
+                grid-area: num4;
+            }
+            .five_button{
+                grid-area: num5;
+            }
+            .six_button{
+                grid-area: num6;
+            }
+            .seven_button{
+                grid-area: num7;
+            }
+            .eight_button{
+                grid-area: num8;
+            }
+            .nine_button{
+                grid-area: num9;
+            }
+            .zero_button{
+                grid-area: num0;
+            }
+            .dot_button{
+                grid-area: dot;
+            }
+            .mul_button{
+                grid-area: mul;
+            }
+            .add_button{
+                grid-area: add;
+            }
+            .sub_button{
+                grid-area: sub;
+            }
+            .div_button{
+                grid-area: div;
+            }
+            
+            .clr_button{
+                grid-area: clr;
+            }
+            .del_button{
+                grid-area: del;
+            }
+            .cal_button{
+                grid-area: cal;
+            }         
+
+            .cal_button, .act__button {
                 background-color:  $equation-background;
                 border-color: $equation-background;
                 background-image: linear-gradient(to top,transparent,transparent 60%, $main-display-background);
                 color: $key-text-color;
-                }
-                .cal_button:hover, .act__button:hover {
+            }
+            .cal_button:hover, .act__button:hover {
                 background-color: $main-display-background;
                 color: $main-display-text;
-                }
             }
+            
 
         }
     }
