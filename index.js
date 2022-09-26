@@ -68,9 +68,9 @@ const calculate = ( firstNumber, secondNumber,operator) => {
         return firstNumber+secondNumber ;
     }else if(operator== '-'){
         return firstNumber-secondNumber ;
-    }else if(operator== '*'){
+    }else if(operator== '×'){
         return firstNumber*secondNumber;
-    }else if(operator== '/'){
+    }else if(operator== '÷'){
         return firstNumber/secondNumber ;
     }else if(operator== '%'){
         return firstNumber%secondNumber ;
