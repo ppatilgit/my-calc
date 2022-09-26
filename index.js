@@ -45,14 +45,12 @@ const handleOperator= (operatorForCal)=>{
     const displayValue = calculator.displayValue;
     const operator= calculator.operator;
     const inputValue = parseFloat(displayValue);
-
-    calculator.previousEquation +=operatorForCal;
+    calculator.previousEquation +=operatorForCal;     
 
     if(operator && calculator.waitingForSecondOperand){
         calculator.operator=operatorForCal;
         return;
     }
-
     if(firstOperand===null && !isNaN(inputValue)){
         calculator.firstOperand=inputValue;
     } else if(operator){
@@ -65,6 +63,7 @@ const handleOperator= (operatorForCal)=>{
 }
 
 const calculate = ( firstNumber, secondNumber,operator) => {    
+    console.log(operator);
     if(operator== '+'){
         return firstNumber+secondNumber ;
     }else if(operator== '-'){
@@ -73,6 +72,10 @@ const calculate = ( firstNumber, secondNumber,operator) => {
         return firstNumber*secondNumber;
     }else if(operator== '/'){
         return firstNumber/secondNumber ;
+    }else if(operator== '%'){
+        return firstNumber%secondNumber ;
+    }else if(operator== "√"){
+        return Math.sqrt(secondNumber);
     }else{
         return secondNumber;
     }
@@ -86,6 +89,14 @@ const resetCalculator = () =>{
     calculator.operator = null;
   }
 
+  const deleteInput = () =>{
+    const firstOperand = calculator.firstOperand;
+    const displayValue = calculator.displayValue;
+    const operator= calculator.operator;
+    const previousEquation=calculator.previousEquation;
+
+
+  }
 //Handle Key click
 const keys = document.querySelector('.buttons');
 keys.addEventListener('click', (event) => {
@@ -107,6 +118,12 @@ keys.addEventListener('click', (event) => {
     
     if (target.classList.contains('clr_button')) {
         resetCalculator();
+        updateDisplay();
+        return;
+    }
+
+    if (target.classList.contains('del_button')) {
+        deleteInput();
         updateDisplay();
         return;
     }

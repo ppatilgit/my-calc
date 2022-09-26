@@ -20,7 +20,7 @@ body h1 {
   color: #343a40;
 }
 body .calculator {
-  margin: 40px;
+  margin: 30px;
   border: 1px solid #495057;
   border-radius: 5px;
   display: flex;
@@ -51,8 +51,9 @@ body .calculator .calculator__screen {
   padding-left: 10px;
 }
 body .calculator .buttons {
+  padding: 10px;
   display: grid;
-  grid-template-areas: "clr del mul div" "num7 num8 num9 add" "num4 num5 num6 sub" "num1 num2 num3 cal" "num0 num0 dot cal";
+  grid-template-areas: "sqr per mul div" "num7 num8 num9 add" "num4 num5 num6 sub" "num1 num2 num3 del" "dot num0 clr cal";
   grid-column-gap: 5px;
   grid-row-gap: 5px;
 }
@@ -116,6 +117,12 @@ body .calculator .buttons .sub_button {
 }
 body .calculator .buttons .div_button {
   grid-area: div;
+}
+body .calculator .buttons .per_button {
+  grid-area: per;
+}
+body .calculator .buttons .sqr_button {
+  grid-area: sqr;
 }
 body .calculator .buttons .clr_button {
   grid-area: clr;
