@@ -149,7 +149,7 @@ body .calculator .buttons .cal_button {
   grid-area: cal;
 }
 body .calculator .buttons .op__button, body .calculator .buttons .act__button {
-  background-color: #e4e4d1;
+  background-color: #ccc3af;
   border-color: #adb5bd;
   color: #212529;
 }

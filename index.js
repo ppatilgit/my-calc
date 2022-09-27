@@ -121,13 +121,21 @@ const resetCalculator = () =>{
   }
 
   const deleteInput = () =>{
-        calculator.previousEquation=''; 
-        calculator.displayValue=calculator.firstOperand;      
+        calculator.displayValue='0';
+        if(calculator.operator!=null){
+
+        }else{
+            calculator.previousEquation = '0';
+        }
+
   }
   const clearDisplay = () =>{
-    calculator.previousEquation='';
-    calculator.displayValue = '0';    
+    if(calculator.displayValue==='0'){
+        calculator.previousEquation=''; 
+        return;
     }
+    calculator.previousEquation=calculator.displayValue;   
+}
 //Handle Key click
 const keys = document.querySelector('.buttons');
 keys.addEventListener('click', (event) => {
