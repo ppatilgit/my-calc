@@ -19,7 +19,7 @@ x² (square)
 Built With
 --------
 html
-css
+css/scss
 javascript
 
 How to Run?
