@@ -7,10 +7,6 @@
 }
 
 body {
-  margin-left: 350px;
-  margin-right: 350px;
-  margin-bottom: 350px;
-  border: 2px solid #495057;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,6 +14,11 @@ body {
 }
 body h1 {
   color: #343a40;
+}
+@media screen and (max-width: 500px) {
+  body h1 {
+    display: none;
+  }
 }
 body .calculator {
   margin: 30px;
@@ -53,7 +54,7 @@ body .calculator .calculator__screen {
 body .calculator .buttons {
   padding: 10px;
   display: grid;
-  grid-template-areas: "sqr per mul div" "num7 num8 num9 add" "num4 num5 num6 sub" "num1 num2 num3 del" "dot num0 clr cal";
+  grid-template-areas: "per allclr clr del" "oneby sqr sqrrt pn" "num7 num8 num9 div" "num4 num5 num6 mul" "num1 num2 num3 sub" "dot num0 cal add";
   grid-column-gap: 5px;
   grid-row-gap: 5px;
 }
@@ -72,6 +73,12 @@ body .calculator .buttons button {
 }
 body .calculator .buttons button:hover {
   background-color: #adb5bd;
+}
+body .calculator .buttons .sqr_button {
+  grid-area: sqr;
+}
+body .calculator .buttons .oneby_button {
+  grid-area: oneby;
 }
 body .calculator .buttons .one_button {
   grid-area: num1;
@@ -121,8 +128,14 @@ body .calculator .buttons .div_button {
 body .calculator .buttons .per_button {
   grid-area: per;
 }
-body .calculator .buttons .sqr_button {
-  grid-area: sqr;
+body .calculator .buttons .sqrrt_button {
+  grid-area: sqrrt;
+}
+body .calculator .buttons .pn_button {
+  grid-area: pn;
+}
+body .calculator .buttons .allclr_button {
+  grid-area: allclr;
 }
 body .calculator .buttons .clr_button {
   grid-area: clr;
@@ -133,13 +146,23 @@ body .calculator .buttons .del_button {
 body .calculator .buttons .cal_button {
   grid-area: cal;
 }
-body .calculator .buttons .cal_button, body .calculator .buttons .act__button {
-  background-color: #adb5bd;
+body .calculator .buttons .op__button, body .calculator .buttons .act__button {
+  background-color: #dbdbad;
   border-color: #adb5bd;
-  background-image: linear-gradient(to top, transparent, transparent 60%, #343a40);
+  background-image: linear-gradient(to bottom, transparent, transparent 60%, #343a40);
   color: #212529;
 }
-body .calculator .buttons .cal_button:hover, body .calculator .buttons .act__button:hover {
+body .calculator .buttons .op__button:hover, body .calculator .buttons .act__button:hover {
+  background-color: #343a40;
+  color: #f8f9fa;
+}
+body .calculator .buttons .cal_button {
+  background-color: #709dca;
+  border-color: #adb5bd;
+  background-image: linear-gradient(to bottom, transparent, transparent 60%, #343a40);
+  color: #212529;
+}
+body .calculator .buttons .cal_button:hover {
   background-color: #343a40;
   color: #f8f9fa;
 }/*# sourceMappingURL=styles.css.map */

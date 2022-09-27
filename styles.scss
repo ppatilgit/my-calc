@@ -7,6 +7,8 @@ $key-background-color: #dee2e6;
 $key-text-color: #212529;
 $equation-background: #adb5bd;
 $equation-text: #495057;
+$cal-background: #709dca;
+$oper-background:#dbdbad;
 
 *{
     margin: 0;
@@ -15,16 +17,15 @@ $equation-text: #495057;
     font-family: $font-body;
 }
 body{
-    margin-left: 350px;
-    margin-right: 350px;
-    margin-bottom: 350px;
-    border: 2px solid $equation-text;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     h1{
         color: $main-display-background;
+        @media screen and (max-width: 500px){
+           display:none;
+        }
     }
     .calculator {
         margin: 30px;
@@ -60,11 +61,12 @@ body{
             padding: 10px;
             display:grid;
             grid-template-areas:
-            "sqr per mul div"
-            "num7 num8 num9 add"
-            "num4 num5 num6 sub"
-            "num1 num2 num3 del"
-            "dot num0 clr cal";
+            "per allclr clr del"
+            "oneby sqr sqrrt pn"
+            "num7 num8 num9 div"
+            "num4 num5 num6 mul"
+            "num1 num2 num3 sub"
+            "dot num0 cal add";
             grid-column-gap: 5px;
             grid-row-gap: 5px;
             button {
@@ -82,7 +84,13 @@ body{
                 }              
                 button:hover {
                     background-color: $equation-background;
-                }      
+                }
+            .sqr_button{
+                grid-area: sqr;
+            } 
+            .oneby_button{
+                grid-area: oneby;
+            }     
             .one_button{
                 grid-area: num1;
             }
@@ -131,9 +139,15 @@ body{
             .per_button{
                 grid-area: per;
             }
-            .sqr_button{
-                grid-area: sqr;
+            .sqrrt_button{
+                grid-area: sqrrt;
+            }
+            .pn_button{
+                grid-area: pn;
             }            
+            .allclr_button{
+                grid-area: allclr;
+            }
             .clr_button{
                 grid-area: clr;
             }
@@ -144,13 +158,23 @@ body{
                 grid-area: cal;
             }         
 
-            .cal_button, .act__button {
-                background-color:  $equation-background;
+            .op__button, .act__button {
+                background-color:  $oper-background;
                 border-color: $equation-background;
-                background-image: linear-gradient(to top,transparent,transparent 60%, $main-display-background);
+                background-image: linear-gradient(to bottom,transparent,transparent 60%, $main-display-background);
                 color: $key-text-color;
             }
-            .cal_button:hover, .act__button:hover {
+            .op__button:hover, .act__button:hover{
+                background-color: $main-display-background;
+                color: $main-display-text;
+            }
+            .cal_button {
+                background-color:  $cal-background;
+                border-color: $equation-background;
+                background-image: linear-gradient(to bottom,transparent,transparent 60%, $main-display-background);
+                color: $key-text-color;
+            }
+            .cal_button:hover{
                 background-color: $main-display-background;
                 color: $main-display-text;
             }

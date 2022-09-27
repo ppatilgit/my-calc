@@ -6,12 +6,13 @@
     // - can handle three or more numbers
 
 const calculator ={
-    previousEquation: '',
+    previousEquation: [],
     displayValue: '0',
     firstOperand: null,
     waitingForSecondOperand: false,
     operator: null
 }
+
 
 const updateDisplay = ()=>{
     const display = document.querySelector('.calculator__screen');
@@ -45,12 +46,13 @@ const handleOperator= (operatorForCal)=>{
     const displayValue = calculator.displayValue;
     const operator= calculator.operator;
     const inputValue = parseFloat(displayValue);
-    calculator.previousEquation +=operatorForCal;     
-
+    calculator.previousEquation +=operatorForCal; 
+     
     if(operator && calculator.waitingForSecondOperand){
         calculator.operator=operatorForCal;
         return;
     }
+
     if(firstOperand===null && !isNaN(inputValue)){
         calculator.firstOperand=inputValue;
     } else if(operator){
@@ -76,6 +78,12 @@ const calculate = ( firstNumber, secondNumber,operator) => {
         return firstNumber%secondNumber ;
     }else if(operator== "√"){
         return Math.sqrt(secondNumber);
+    }else if(operator== "∓"){
+        return -secondNumber;
+    }else if(operator== '¹/ₓ'){
+        return 1/secondNumber ;
+    }else if(operator== 'x²'){
+        return secondNumber*secondNumber;
     }else{
         return secondNumber;
     }
@@ -90,13 +98,12 @@ const resetCalculator = () =>{
   }
 
   const deleteInput = () =>{
-    const firstOperand = calculator.firstOperand;
-    const displayValue = calculator.displayValue;
-    const operator= calculator.operator;
-    const previousEquation=calculator.previousEquation;
-
-
+        calculator.previousEquation='';        
   }
+  const clearDisplay = () =>{
+    calculator.previousEquation='';
+    calculator.displayValue = '0';    
+    }
 //Handle Key click
 const keys = document.querySelector('.buttons');
 keys.addEventListener('click', (event) => {
@@ -116,8 +123,13 @@ keys.addEventListener('click', (event) => {
         return;
     }
     
-    if (target.classList.contains('clr_button')) {
+    if (target.classList.contains('allclr_button')) {
         resetCalculator();
+        updateDisplay();
+        return;
+    }
+    if (target.classList.contains('clr_button')) {
+        clearDisplay();
         updateDisplay();
         return;
     }
@@ -128,10 +140,6 @@ keys.addEventListener('click', (event) => {
         return;
     }
 
-    if (target.classList.contains('del_button')) {
-        console.log('delete', target.value);
-        return;
-    }
     if (target.classList.contains('dot_button')) {
         inputDecimal(target.value);
         updateDisplay();
