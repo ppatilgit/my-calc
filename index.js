@@ -46,7 +46,7 @@ const handleOperator= (operatorForCal)=>{
     const displayValue = calculator.displayValue;
     const operator= calculator.operator;
     const inputValue = parseFloat(displayValue);
-    console.log(operatorForCal);
+    
     if(operatorForCal==='√'){
         calculator.previousEquation +=`√`; 
     }else if(operatorForCal==='∓'){
@@ -55,6 +55,8 @@ const handleOperator= (operatorForCal)=>{
         calculator.previousEquation =`sqr`; 
     }else if(operatorForCal==='¹/ₓ'){
         calculator.previousEquation =`1/`;
+    }else if(operatorForCal==="="){
+        calculator.previousEquation=`(${calculator.previousEquation})`;
     }else{
         calculator.previousEquation+=operatorForCal;
     }
@@ -121,12 +123,13 @@ const resetCalculator = () =>{
   }
 
   const deleteInput = () =>{
-        calculator.displayValue='0';
-        if(calculator.operator!=null){
-
-        }else{
-            calculator.previousEquation = '0';
-        }
+    let previousEquation= calculator.previousEquation;
+    calculator.displayValue='0';
+    if(calculator.operator!=null){
+        calculator.previousEquation=previousEquation.substring(0, previousEquation.indexOf(calculator.operator)+1);  
+    }else{
+        calculator.previousEquation = '';
+    }
 
   }
   const clearDisplay = () =>{
