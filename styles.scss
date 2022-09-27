@@ -8,7 +8,7 @@ $key-text-color: #212529;
 $equation-background: #adb5bd;
 $equation-text: #495057;
 $cal-background: #709dca;
-$oper-background:#dbdbad;
+$oper-background:#e4e4d1;
 
 *{
     margin: 0;
@@ -83,7 +83,9 @@ body{
                     text-shadow: 0 1px equation-text;
                 }              
                 button:hover {
-                    background-color: $equation-background;
+                    background-color: $main-display-background;
+                    background-image: none;
+                    color: $main-display-text;
                 }
             .sqr_button{
                 grid-area: sqr;
@@ -161,25 +163,13 @@ body{
             .op__button, .act__button {
                 background-color:  $oper-background;
                 border-color: $equation-background;
-                background-image: linear-gradient(to bottom,transparent,transparent 60%, $main-display-background);
                 color: $key-text-color;
-            }
-            .op__button:hover, .act__button:hover{
-                background-color: $main-display-background;
-                color: $main-display-text;
             }
             .cal_button {
                 background-color:  $cal-background;
                 border-color: $equation-background;
-                background-image: linear-gradient(to bottom,transparent,transparent 60%, $main-display-background);
                 color: $key-text-color;
             }
-            .cal_button:hover{
-                background-color: $main-display-background;
-                color: $main-display-text;
-            }
-            
-
         }
     }
     

@@ -46,8 +46,19 @@ const handleOperator= (operatorForCal)=>{
     const displayValue = calculator.displayValue;
     const operator= calculator.operator;
     const inputValue = parseFloat(displayValue);
-    calculator.previousEquation +=operatorForCal; 
-     
+    console.log(operatorForCal);
+    if(operatorForCal==='√'){
+        calculator.previousEquation +=`√`; 
+    }else if(operatorForCal==='∓'){
+        calculator.previousEquation =`negate`; 
+    }else if(operatorForCal==='x²'){
+        calculator.previousEquation =`sqr`; 
+    }else if(operatorForCal==='¹/ₓ'){
+        calculator.previousEquation =`1/`;
+    }else{
+        calculator.previousEquation+=operatorForCal;
+    }
+    
     if(operator && calculator.waitingForSecondOperand){
         calculator.operator=operatorForCal;
         return;
@@ -56,38 +67,38 @@ const handleOperator= (operatorForCal)=>{
     if(firstOperand===null && !isNaN(inputValue)){
         calculator.firstOperand=inputValue;
     } else if(operator){
-        const result =calculate(firstOperand, inputValue, operator);
+        const result =calculate(firstOperand, inputValue, operator, operatorForCal);
         calculator.displayValue=String(result);
         calculator.firstOperand=result;
+       
     }
     calculator.waitingForSecondOperand=true;
-    calculator.operator=operatorForCal;    
+    calculator.operator=operatorForCal;
+        
 }
 
 const calculate = ( firstNumber, secondNumber,operator) => {    
-    console.log(operator);
-    if(operator== '+'){
-        return firstNumber+secondNumber ;
-    }else if(operator== '-'){
-        return firstNumber-secondNumber ;
-    }else if(operator== '×'){
-        return firstNumber*secondNumber;
-    }else if(operator== '÷'){
-        return firstNumber/secondNumber ;
-    }else if(operator== '%'){
-        return firstNumber%secondNumber ;
-    }else if(operator== "√"){
-        return Math.sqrt(secondNumber);
-    }else if(operator== "∓"){
-        return -secondNumber;
-    }else if(operator== '¹/ₓ'){
-        return 1/secondNumber ;
-    }else if(operator== 'x²'){
-        return secondNumber*secondNumber;
-    }else{
-        return secondNumber;
-    }
-
+        if(operator== '+'){
+            return firstNumber+secondNumber ;
+        }else if(operator== '-'){
+            return firstNumber-secondNumber ;
+        }else if(operator== '×'){
+            return firstNumber*secondNumber;
+        }else if(operator== '÷'){
+            return firstNumber/secondNumber ;
+        }else if(operator== "%"){
+            return secondNumber/100;
+        }else if(operator== "√"){
+            return Math.sqrt(secondNumber);
+        }else if(operator== "∓"){
+            return -secondNumber;
+        }else if(operator== '¹/ₓ'){
+            return 1/secondNumber ;
+        }else if(operator== 'x²'){
+            return secondNumber*secondNumber;
+        }else{
+            return secondNumber;
+        }
 };
 const resetCalculator = () =>{
     calculator.previousEquation= '',
@@ -98,7 +109,8 @@ const resetCalculator = () =>{
   }
 
   const deleteInput = () =>{
-        calculator.previousEquation='';        
+        calculator.previousEquation=''; 
+        calculator.displayValue=calculator.firstOperand;      
   }
   const clearDisplay = () =>{
     calculator.previousEquation='';

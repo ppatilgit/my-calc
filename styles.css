@@ -72,7 +72,9 @@ body .calculator .buttons button {
   text-shadow: 0 1px equation-text;
 }
 body .calculator .buttons button:hover {
-  background-color: #adb5bd;
+  background-color: #343a40;
+  background-image: none;
+  color: #f8f9fa;
 }
 body .calculator .buttons .sqr_button {
   grid-area: sqr;
@@ -147,22 +149,12 @@ body .calculator .buttons .cal_button {
   grid-area: cal;
 }
 body .calculator .buttons .op__button, body .calculator .buttons .act__button {
-  background-color: #dbdbad;
+  background-color: #e4e4d1;
   border-color: #adb5bd;
-  background-image: linear-gradient(to bottom, transparent, transparent 60%, #343a40);
   color: #212529;
-}
-body .calculator .buttons .op__button:hover, body .calculator .buttons .act__button:hover {
-  background-color: #343a40;
-  color: #f8f9fa;
 }
 body .calculator .buttons .cal_button {
   background-color: #709dca;
   border-color: #adb5bd;
-  background-image: linear-gradient(to bottom, transparent, transparent 60%, #343a40);
   color: #212529;
-}
-body .calculator .buttons .cal_button:hover {
-  background-color: #343a40;
-  color: #f8f9fa;
 }/*# sourceMappingURL=styles.css.map */
