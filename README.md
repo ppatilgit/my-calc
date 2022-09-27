@@ -2,7 +2,7 @@
 
 Calculator for following calculations
 
-2 or more operands:
+2 or 3 more operands:
 --------------
 Add
 Multiply

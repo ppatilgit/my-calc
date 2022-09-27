@@ -123,6 +123,11 @@ const resetCalculator = () =>{
   }
 
   const deleteInput = () =>{
+    // calculator.displayValue= calculator.displayValue.slice(0,-1);
+    // calculator.previousEquation=calculator.previousEquation.slice(0,-1);
+    // if(calculator.displayValue===''){
+    //     calculator.displayValue='0';
+    // }
     let previousEquation= calculator.previousEquation;
     calculator.displayValue='0';
     if(calculator.operator!=null){
