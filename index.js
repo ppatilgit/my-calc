@@ -77,7 +77,20 @@ const handleOperator= (operatorForCal)=>{
         
 }
 
-const calculate = ( firstNumber, secondNumber,operator) => {    
+const calculate = ( firstNumber, secondNumber,operator, currentOperator) => {    
+    if(currentOperator==="%"){
+        if(operator== "+"){
+            return firstNumber +((secondNumber/100)*firstNumber);
+        } else if(operator=="-"){
+            return firstNumber - ((secondNumber/100)*firstNumber);
+        }else if(operator=="×"){
+            return firstNumber * ((secondNumber/100)*firstNumber);
+        }else if(operator=="÷"){
+            return firstNumber / ((secondNumber/100)*firstNumber);
+        }else{
+            return secondNumber/100;
+        }
+    }else{
         if(operator== '+'){
             return firstNumber+secondNumber ;
         }else if(operator== '-'){
@@ -86,8 +99,6 @@ const calculate = ( firstNumber, secondNumber,operator) => {
             return firstNumber*secondNumber;
         }else if(operator== '÷'){
             return firstNumber/secondNumber ;
-        }else if(operator== "%"){
-            return secondNumber/100;
         }else if(operator== "√"){
             return Math.sqrt(secondNumber);
         }else if(operator== "∓"){
@@ -99,6 +110,7 @@ const calculate = ( firstNumber, secondNumber,operator) => {
         }else{
             return secondNumber;
         }
+    }
 };
 const resetCalculator = () =>{
     calculator.previousEquation= '',
